@@ -1,0 +1,52 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASCII caps</title>
+</head>
+<body>
+    <p id="id1"></p>
+    <script>
+        var str = document.getElementById("id1");
+            if (str.value == "") {
+                str.focus();
+            }
+            var a = "ASCII Code is == >  ";
+            document.getElementById("demo").innerHTML
+                = a + str.value.charCodeAt(0);
+</script>
+</body>
+</html> -->
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docaa</title>
+</head>
+<body>
+    <input type="text" id="name">
+    <input type="button" value="submit" onclick="aa()">
+    <p id="aa"></p>
+    <script>
+        function aa(){
+            var name=document.getElementById("name").value;
+            var str=[];
+            for(var i=0; i<name.length;i++){
+                if(name.charCodeAt(i)%2==0){
+                    str.push(name[i].toUpperCase());
+                }
+                else{
+                    str.push(name[i].toLowerCase());
+                }
+            }
+            document.getElementById("aa").innerHTML = str.join("");
+        }
+    </script>
+    
+</body>
+</html>

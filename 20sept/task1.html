@@ -1,0 +1,62 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calcu</title>
+    <style>
+        .pin{
+            margin-left: 40px;
+            width: 50px;
+            height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <pre>first value   </pre><input type="text" name="" id="n1"><br>
+    <br>
+    <pre>enter second value   </pre><input type="text" name="" id="n2"><br> <br>
+    <button id="plus" class="pin">+</button>
+    <button id="minus" class="pin">-</button>
+    <button id="multi" class="pin">x</button>
+    <button id="divide" class="pin">%</button>
+    <p id="result"></p>
+ 
+
+    <script>
+        document.getElementById("plus").onclick = function(){
+            var bic = document.getElementById("n1").value;
+            var bo = document.getElementById("n2").value;
+            var result = parseInt(bic) + parseInt(bo);
+            
+            document.getElementById("result").innerHTML = result;
+
+        }
+        document.getElementById("minus").onclick = function(){
+            var bic = document.getElementById("n1").value;
+            var bo = document.getElementById("n2").value;
+            var result = bic - bo;
+            document.getElementById("result").innerHTML = result;
+
+        }
+        document.getElementById("multi").onclick = function(){
+            var bic = document.getElementById("n1").value;
+            var bo = document.getElementById("n2").value;
+            var result = bic * bo;
+            document.getElementById("result").innerHTML = result;
+
+        }
+        document.getElementById("divide").onclick = function(){
+            var bic = document.getElementById("n1").value;
+            var bo = document.getElementById("n2").value;
+            var result = bic / bo;
+            document.getElementById("result").innerHTML = result;
+
+        }
+
+    </script>
+</body>
+
+</html>

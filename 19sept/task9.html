@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>upprlowr</title>
+</head>
+<body>
+    <p id="app"></p>
+    
+    <script>
+
+        function capToFront(text) {
+        let chars = text.split('')
+
+        const uppercase = chars.filter((char) => char === char.toUpperCase())
+        const lowercase = chars.filter((char) => char === char.toLowerCase())
+
+        const result = [...uppercase, ...lowercase].join('')
+
+        console.log(result)
+
+        return result
+        }
+
+        document.getElementById('app').innerHTML = `
+        <p>hApPy → ${capToFront('hApPy')}</p>
+        <p>moveMENT → ${capToFront('moveMENT')}</p>
+        <p>niMIT → ${capToFront('niMIT')}</p>
+        `
+    </script>
+</body>
+</html>

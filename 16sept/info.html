@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>newlogin</title>
+    <style>
+        #yo{
+            background-color: #3870bc;
+            margin-left: 36px;
+            margin-top: 20px;
+            border-radius: 150px 150px 150px 1px;
+            font-size: 14px;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: white;
+            border: 0px;
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+        #ho{
+            font-size: 21px;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+        }
+
+
+        input, select, textarea{
+            background-color: #dde0e0;
+            border-radius: 3px;
+            border: 0px;
+            margin-top: 30px;
+            margin-left: 36px;
+            width: 470px;
+        }
+        #name{
+            margin-top: -5px;
+            height: 30px;
+            font-size: 15px;
+            font-weight: bold;
+            font-family:'Times New Roman', Times, serif;
+        }
+        #email{
+            margin-top: 25px;
+            height: 30px;
+            font-size: 15px;
+            font-weight: bold;
+            font-family:'Times New Roman', Times, serif;
+        }
+
+        #self{
+            margin-top: 25px;
+            font-size: 15px;
+            font-weight: bold;
+            font-family:'Times New Roman', Times, serif;
+            padding-top: 7px;
+            height: 45px;
+        }
+
+        #int{
+            margin-left: 36px;
+            font-size: 15px;
+            font-family: Verdana, sans-serif;
+        }
+        #dd{
+            margin-top: 10px;
+            margin-left: -1px;
+            padding-left: 10px;
+            height: 35px;
+            padding-top: 7px;
+            font-size: 15px;
+            font-weight: bold;
+            font-family:'Times New Roman', Times, serif;
+        }
+
+        #bout{
+            margin-top: -5px;
+            font-size: 15px;
+            font-weight: bold;
+            font-family:'Times New Roman', Times, serif;
+            padding-top: 7px;
+            height: 45px;
+        }
+        #bot{
+            font-size: 20px;
+            margin-top: 28px;
+            margin-left: 20px;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            background-color: #3870bc;
+            border-color: #3870bc;
+            border:0px; 
+            height: 60px;
+            width: 510px;
+        }
+/*inner box dark white*/
+        #d1{
+            width: 550px;
+            height: 590px;
+            border-radius: 10px;
+            background-color: #f6f8fc;
+            margin: 0px  auto;
+        }
+
+    </style>
+</head>
+<body bgcolor="white">
+    <form id="d1">
+        <div>
+            <p id="ho"><button name="can" id="yo">1</button><b>Candidate Info</b></p>
+
+
+            <input type="text" name="name" id="name" placeholder="  Your Name*">
+
+            <input type="email" name="email" id="email" placeholder="  Your Email*">
+
+
+            <textarea name="self" id="self" cols="" rows="" placeholder=" About yourself"></textarea><br>
+
+            <p id="int"><b>Intrests:</b><br>  <select name="dd" id="dd">
+                <option value="" placeholder="Fishkeeping">Fishkeeping</option>
+            </select><br></p>
+
+            <p id="ho"><button name="Info" id="yo">2</button><b>Additional Info</b></p>
+            <textarea name="bout" id="bout" cols="70" rows="" placeholder=" About Your School"></textarea>
+
+            <button name="submit" id="bot">Submit</button>
+        </div>
+    </form>
+            
+</body>
+</html>

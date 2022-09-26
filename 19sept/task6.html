@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mimics</title>
+</head>
+<body>
+    <p><input type="text" id="num" placeholder="Enter number" /></p>
+        <p>
+            <input type="button" value="ans" onclick="hii()" />
+            
+        </p>
+    
+    <p id="a"></p>
+    <script>
+        function hii(){
+            
+            num1 = Number(document.getElementById("num").value);
+             var num2=3;
+             var result=num1/(2**num2);
+         document.getElementById("a").innerHTML=result;
+
+        }
+    </Script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        
+        #main{
+            border: 20px solid rgba(38, 76, 119, 0.685);
+            width: auto;
+            /* margin:0px; */
+            border-collapse: collapse;
+        }
+        #form{
+            margin: 90px;
+            margin-left: 400px;
+            margin-right: 535px;
+            
+        }
+        #create{
+            text-align: center;
+            font-size: xx-large;
+            border-bottom: 1px solid black;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        #d1{
+            color: rgba(28, 158, 78, 0.719);
+            font-size: large;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            margin-left: 51px;
+        }
+        #d2{
+            color: rgba(28, 158, 78, 0.719);
+            font-size: large;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            margin-left: 350px;
+            margin-top: -40px;
+        }
+        #d3{
+            color: rgba(28, 158, 78, 0.719);
+            font-size: large;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            margin-left: 51px;
+        }
+        #email{
+            height: 25px;
+            width: 87%;
+        }
+        #d4{
+            
+            margin-left: 51px;
+        }
+        #d5{
+            margin-left: 350px;
+            margin-top: -40px;
+
+        }
+        #gen{
+            color: rgba(28, 158, 78, 0.719);
+            font-size: large;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        #hob{
+            color: rgba(28, 158, 78, 0.719);
+            font-size: large;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        #d6{
+            margin-left: 51px;
+            margin-right: auto;
+        }
+        #boi{
+            color: rgba(28, 158, 78, 0.719);
+            font-size: large;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        #button{
+            margin-right: 50px;
+            font-size: large;
+            border-radius: 4px;
+            color: white;
+            border: 5px solid;
+            background-color: rgba(36, 136, 75, 0.719);
+            border-color: rgba(36, 136, 75, 0.719);
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        #d7{
+            border-top: 1px solid black;
+            text-align: right;
+        }
+    </style>
+    <title>account form</title>
+</head>
+<body>
+    <form id="form">
+            <div id="main">
+                
+                <div id="create">Create account</div><br>
+                <div>
+                    
+                    <div id="d1">
+                    <label for="fname"><b>First name*<br></b></label>
+                    <input type="text" placeholder="enter  your first name" name="fname" id="fname"></div>
+
+                    <div id="d2">
+                    <label for="lname"><b>Last name*<br></b></label>
+                    <input type="text" placeholder="enter your last name" name="lname" id="lname"></div><br>
+
+                    <div id="d3">
+                        <label for="email"><b>Email*<br></b></label>
+                        <input type="text" placeholder="enter your eamil" name="email" id="email"></div><br>
+        
+                    <div id="d1">
+                        <label for="fname"><b>Password*<br></b></label>
+                        <input type="password" placeholder="enter your password" name="fname" id="fname"></div>
+
+                    <div id="d2">
+                        <label for="conpass"><b>Confirm password*<br></b></label>
+                        <input type="password" placeholder="enter your password again" name="conpass" id="conpass"></div><br>
+
+                    <div id="d4">
+                        <label for="gender" id="gen"><b>Gender*<br></b></label>
+                        <input type="radio" id="male" name="gender" value="male">
+                        <label for="male">Male</label>
+                        <input type="radio" id="female" name="gender" value="female">
+                        <label for="female">Female</label></div>
+
+                    <div id="d5">
+                        <label for="hobbies" id="hob"><b>Hobbies*<br></b></label>
+                        <input type="checkbox" id="vehicle1" name="music">Music
+                        <input type="checkbox" id="vehicle2" name="sports">Sports
+                        <input type="checkbox" id="vehicle3" name="travel">Travel
+                    </div><br>
+
+                    <div id="d1">
+                        <label for="gender"><b>Source of income*<br></b></label>
+                        <select type="number" name="dd" id="dd">
+                            <option value=""></option>
+                            <option value="a">Employed</option>
+                            <option value="b">Bussiness</option>
+                            <option value="c">Other</option>
+                        </select></div>
+
+                    <div id="d2">
+                        <label for="conpass"><b>Income<br></b></label>
+                        <input type="range" min="1" max="100" value="50"></div><br>
+
+                    <div id="d1">
+                        <label for="upload"><b>Upload profile picture<br></b></label>
+                        <input type="file" name="upload" id="upload"></div>
+
+                    <div id="d2">
+                        <label for="conpass"><b>Age<br></b></label>
+                        <input type="number" placeholder="ener your age" name="conpass" id="conpass"></div><br>
+
+                    <div id="d6">
+                        <label for="bio" id="boi"><b>bio<br></b></label>
+                        
+                        <textarea name="bio" id="bio" cols="70" rows="7"></textarea>
+                    </div><br>
+
+                <div id="d7">
+                    <button id="button">Create</button>
+                </div>
+
+            </div>
+        </div>
+    </form>
+</body>
+</html>

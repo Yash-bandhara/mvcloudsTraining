@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aeiou</title>
+</head>
+<body>
+    <p id="aeiou"></p>
+    <script>
+
+        function countVowel(str) { 
+
+        const count = str.match(/[aeiou]/gi).length;
+
+        return count;
+        }
+
+        const string = prompt('enter a string: ');
+
+        const result = countVowel(string);
+
+        document.getElementById("aeiou").innerHTML = result;
+    </script>
+</body>
+</html>

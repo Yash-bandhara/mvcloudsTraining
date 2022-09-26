@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+Select a file to upload:
+<input type="file" name="inputfile" id="inputfile" onchange='getoutput()' multiple />
+
+<p>Click the button to display the value of the name attribute of the input element.</p>
+
+ 
+    <!-- Output Filename <input id='outputfile' type='text' name='outputfile'><br> -->
+    Extension <p id='extension' type='text' name='extension'></p>
+
+    <p id="dpp"></p>
+
+<script>
+
+    var a = []
+    var jpg
+        function getoutput(){
+            // outputfile.value=inputfile.value.split('.')[0];
+            var ab = extension.value=inputfile.value;
+
+
+            document.getElementById('dpp').innerText = ab;
+
+            // for(a = 0; a = 10; a++){
+            //     let result = text.include(".jpg" || ".png")
+            //     if(result == true)
+            //     jpg[0] = "jpg"
+            // }
+        }
+
+</script>
+
+</body>
+</html>

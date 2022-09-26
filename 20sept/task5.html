@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		extract number from string
+	</title>
+</head>
+
+<body>
+    
+    <input type="text" placeholder="enter multiple number" id="nu">
+    <button id="check">check</button>
+
+	<script>
+
+        document.getElementById("check").onclick = function(){
+            var bic = document.getElementById("nu").value;
+            bic = bic.split(" ");
+            document.write(highestAndlowest(bic))
+         }
+
+        function highestAndlowest(nu){
+           
+            return "highest value is " +  Math.max.apply(null, nu)  + "\n lowest value is " + Math.min.apply(null, nu)
+
+        }
+	</script>
+</div>
+</body>
+</html>

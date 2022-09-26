@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>upload</title>
+        <style>
+            table,tr,td,th{
+            border: 2px solid black;
+            width: 400px;
+            height: 70px;
+            border-collapse: collapse;
+        }
+    
+            #ee{
+                /* margin-left: 1000px; */
+                /* border */
+                border: 2px solid black;
+                
+
+            }
+        </style>
+    </head>
+<body>
+
+Select a file to upload:
+<input type="file" name="inputfile" id="inputfile" onchange='getoutput()' multiple />
+<br><br>
+    Extension <p id='extension' type='text' name='extension'></p>
+<!-- jpg or jpeg fornmat is here -->
+    <table id="ee">
+        <tr>
+            <th>jpg  png or jpeg files</th></tr>
+        <tr><td id="jpg">jpg file</td></tr>
+        </table><br>
+    <!-- pdf format is here -->
+    <table id="ee">
+        <th>pdf files</th>
+           <tr id="pdf"> 
+                <td>pdf file</td>
+            </tr>
+           <label for="pdf"></label>
+      
+    </table><br>
+<!-- docx format is here -->
+    <table id="ee">
+        <th>docx files</th>
+           <tr id="docx"> <td>docx file</td></tr>
+           <label for="docx"></label>
+        </td>
+        
+           
+        
+    </table>
+
+
+<script>
+
+    const a = []
+    // var jpg
+        function getoutput(){
+            
+            var ab = document.getElementById("inputfile").files;
+            console.log({ab});
+            // for(var i=0; i<7; i++){
+            //     // abc(ab);
+            // }
+           
+        }
+        function abc(text){
+            // fetch(text)
+            var txt = JSON.stringify(text)
+            var jpg = txt.includes("jpg")
+            var jpeg = txt.includes("jpeg")
+            var pdf = txt.includes("pdf")
+            var jpeg = txt.includes("docx")
+            console.log(txt)
+            
+            if(jpg == true || jpeg == true){
+                console.log("jpg format")
+                document.getElementById('jpg').innerText = txt;
+            }
+            else if(pdf == true){
+                console.log("pdf format")
+                document.getElementById('pdf').innerText = txt;
+            }
+            else if(docx == true){
+                console.log("docx format")
+                document.getElementById('docx').innerText = txt;
+            }
+        }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <style>
+	body{
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	font-family: 'Jost', sans-serif;
+	background: linear-gradient(to bottom, #82c8f0, #6396e2, #6592f3);
+}
+.main{
+	width: 350px;
+	height: 500px;
+	/* background: red; */
+	overflow: hidden;
+	border-radius: 10px;
+	box-shadow: 5px 20px 50px #000;
+}
+#chk{
+	display: none;
+}
+.signup{
+	position: relative;
+	width:100%;
+	height: 100%;
+}
+label{
+	color: #eee;
+	font-size: 2.3em;
+	justify-content: center;
+	display: flex;
+	margin: 60px;
+	font-weight: bold;
+	cursor: pointer;
+	/* transition: .5s ease-in-out; */
+}
+input{
+	width: 60%;
+	height: 20px;
+	background: #e0dede;
+	justify-content: center;
+	display: flex;
+	margin: 20px auto;
+	padding: 10px;
+	border: none;
+	outline: none;
+	border-radius: 5px;
+}
+button{
+	width: 60%;
+	height: 40px;
+	margin: 10px auto;
+	/* justify-content: center; */
+	display: block;
+	color: rgb(10, 10, 10);
+	background: #3371f8;
+	font-size: 1em;
+	font-weight: bold;
+	/* margin-top: 20px; */
+	/* outline: none;*/
+	border: none;
+	border-radius: 5px;
+	/* transition: .2s ease-in; */
+	cursor: pointer;
+}
+button:hover{
+	background: #89e2f8;
+}
+.login{
+	height: 460px;
+	background: #eee;
+	border-radius: 60% / 10%;
+	transform: translateY(-180px);
+	transition: .8s ease-in-out;
+}
+.login label{
+	color: #6396e2;
+	transform: scale(.6);
+}
+
+#chk:checked ~ .login{
+	transform: translateY(-500px);
+}
+#chk:checked ~ .login label{
+	transform: scale(1);	
+}
+#chk:checked ~ .signup label{
+	transform: scale(.6);
+}
+  </style>
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>form</title>
+</head>
+<body>
+	<div class="main">  	
+		<input type="checkbox" id="chk" aria-hidden="true">
+
+			<div class="signup">
+				<form method="post">
+					<label for="chk" aria-hidden="true">Sign up</label>
+					<input type="text" name="txt" placeholder="User name" id="susername">
+					<input type="email" name="email" placeholder="Email" id="semail">
+					<input type="password" name="pswd" placeholder="Password" id="spassword">
+					<button id="signup">Sign up</button>
+				</form>
+			</div>
+
+			<div class="login">
+				<form>
+					<label for="chk" aria-hidden="true">Login</label>
+					<input type="email" name="email" placeholder="Email" id="lemail">
+					<input type="password" name="pswd" placeholder="Password" id="lpasswrod">
+					<button id="login">Login</button>
+				</form>
+			</div>
+	</div>
+
+
+	
+
+<script type="module">
+		// Import the functions you need from the SDKs you need
+		import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+		const firebaseConfig = {
+			apiKey: "AIzaSyD9UbyxzwQMWRa56gaacCImEL9GjPa2kEE",
+			authDomain: "notes-c90ed.firebaseapp.com",
+			projectId: "notes-c90ed",
+			storageBucket: "notes-c90ed.appspot.com",
+			messagingSenderId: "325832071743",
+			appId: "1:325832071743:web:9d1a04897ba06a317b768a"
+		};
+
+		const app = initializeApp(firebaseConfig);
+
+		import { getDatabase, ref, set, child, get,}
+		from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js";
+		const db = getDatabase();
+
+		// SIGN UP PAGE
+		const susername = document.getElementById('susername');
+		const semail = document.getElementById('semail');
+		const spassword = document.getElementById('spassword');
+		const signup = document.getElementById('signup');
+
+		//  VALIDATION
+
+		function isEmptyOrSpaces(str){
+			return str === null || str.match(/^ *$/) !== null;
+		}
+
+		function validation(){
+			let nameregex = /^[a-zA-Z\s]+$/;
+			let email = /^[a-zA-Z0-9]+@(gmail|yahoo|outlook)\.com$/;
+			let userregex = /^[a-zA-Z0-9]{5,}$/;
+
+			if(isEmptyOrSpaces(susername.value) || isEmptyOrSpaces(semail.value) || isEmptyOrSpaces(spassword.value)){
+				alert("you cannot left any field empty!");
+				return flase;
+			}
+
+			if(!nameregex.test(susername.value)){ 
+				alert("the name should only contain alphabets!");
+				return false;
+			}
+
+			if(!emailregex.test(semail.value)){
+				alert("enter valid email!");
+				return false;
+			}
+
+			if(!useregex.test(susername.value)){
+				alert("-username can oly be alphanumeric\n-username must be atleast 5 character\n username cannot contain spaces");
+				return false;
+			}
+			return true;
+		}
+
+		// REGISTER USER TO FIREBASE
+
+		function registeruser(){
+			if(!validation()){
+				return;
+			};
+			const dbRef = ref(db);
+			
+			get(child(dbRef, "userslist/" + susername.value)).them((snapshot) =>{
+				if(snapshot.exists()){
+					alert("Account already exist!");
+				}
+				else{
+					set(ref(db, "userlists/"+ susername.value),
+					{
+						username : susername.value,
+						email : semail.value,
+						password : spassword
+					})
+					.then(()=>{
+						alert("user added successfully");
+					})
+					.catch((error)=>{
+						alert("error"+ error);
+					})
+				}
+			});
+		}
+		
+		// ASSIGN THE EVENTS
+
+		signup.addEventListener('click', registeruser);
+
+
+</script>
+
+</body>
+</html>
+<!-- partial -->
+  
+</body>
+</html>

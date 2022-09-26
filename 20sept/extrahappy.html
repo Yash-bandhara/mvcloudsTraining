@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label> Enter a string</label>
+
+    <input type="text" id="name" placeholder="Enter a string" />
+
+    <br />
+    <br />
+
+    <input type="button" value="submit" onclick="myFunction()" />
+    <br />
+
+    <p id="myFunction"></p>
+    <script>
+        function myFunction() {
+            // create a function to sort alphabetically example AAaaPlE : aaAAELP
+            var str = document.getElementById("name").value;
+            var arr = str.split("");
+            
+            const map = new Map();
+            map.set('a',1);
+            map.set('A',2);
+            map.set('b',3);
+            map.set('B',4);
+            map.set('c',5);
+            map.set('C',6);
+            map.set('d',7);
+            map.set('D',8);
+            map.set('e',9);
+            map.set('E',10);
+            map.set('f',11);
+            map.set('F',12);
+            map.set('g',13);
+            map.set('G',14);
+            map.set('h',15);
+            map.set('H',16);
+            map.set('i',17);
+            map.set('I',18);
+            map.set('j',19);
+            map.set('J',20);
+            map.set('k',21);
+            map.set('K',22);
+            map.set('l',23);
+            map.set('L',24);
+            map.set('m',25);
+            map.set('M',26);
+            map.set('n',27);
+            map.set('N',28);
+            map.set('o',29);
+            map.set('O',30);
+            map.set('p',31);
+            map.set('P',32);
+            map.set('q',33);
+            map.set('Q',34);
+            map.set('r',35);
+            map.set('R',36);
+            map.set('s',37);
+            map.set('S',38);
+            map.set('t',39);
+            map.set('T',40);
+            map.set('u',41);
+            map.set('U',42);
+            map.set('v',43);
+            map.set('V',44);
+            map.set('w',45);
+            map.set('W',46);
+            map.set('x',47);
+            map.set('X',48);
+            map.set('y',49);
+            map.set('Y',50);
+            map.set('z',51);
+            map.set('Z',52);
+
+
+            arr.sort(function(a, b) {
+                return map.get(a) - map.get(b);
+            });
+ 
+            document.getElementById("myFunction").innerHTML = arr.join("");
+        }
+    </script>
+</body>
+</html>

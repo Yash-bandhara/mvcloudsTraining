@@ -1,0 +1,56 @@
+
+<!-- <html lang="en">
+<head>
+    <script src="https://unkpg.com/read-excel-file@4.x/bundle/read-excel-file.min.js"></script>
+    <title>exceltoweb</title>
+</head>
+<body>
+        <input type="file" id="input">
+        <table id="tbl"></table>
+
+        <!- <script>
+            var input
+        </script> -
+</body> 
+</html>-->
+
+ <!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel Sheets to HTML Table</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js" integrity="sha512-r22gChDnGvBylk90+2e/ycr3RVrDi8DIOkIGNhJlKfuyQM4tIRAI062MaV8sfjQKYVGjOBaZBOA87z+IhZE9DA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+    
+    </style>
+</head>
+ 
+<body>
+    <div class="table"></div>
+    <input type="button" onclick="async()" />
+    
+    
+    <script>
+        let table = document.querySelector(".table");
+        (
+            async() => {
+                let workbook = XLSX.read(await (await fetch("https://docs.google.com/spreadsheets/d/1csrqEczFysehLy4aMD5VSyKGcSqDDMRnP_Ywo1zW9_c/edit#gid=0")).arrayBuffer());
+                console.log(workbook);
+                let worksheet = workbook.SheetNames;
+                
+                worksheet.forEach(name => {
+                    let html = XLSX.utils.sheet_to_html(workbook.Sheets[name]);
+                    table.innerHTML += `
+                    <h3>${name}</h3>${html}
+                    `;
+            
+                })
+            }
+        )()
+    </script>
+</body>
+ 
+</html> 

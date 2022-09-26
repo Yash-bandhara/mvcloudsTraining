@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>average</title>
+    <style>
+        table,
+        tr,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            margin: 200px auto;
+            /* height: 24%; */
+            font-size: 20px;
+        }
+
+        #first_col {
+            width: 300px;
+            height: 40px;
+            text-align: left;
+        }
+
+        #second_col {
+            width: 300px;
+            text-align: left;
+        }
+        #d1{
+            height: 35px;
+        }
+
+        #d2{
+            height: 35px;
+        }
+
+        #third_col {
+            width: 150px;
+            text-align: left;
+        }
+
+        #right {
+            text-align: right;
+        }
+
+        #name {
+            text-align-last:left;
+            padding-top: 30px;
+            font-size: 22px;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th id="first_col">NAME</th>
+            <th id="second_col">SUBJECT</th>
+            <th id="third_col">MARKS</th>
+        </tr>
+
+        
+        <tr id="d1">
+            <td rowspan="2" id="name">John</td>
+            <td>Web Design</td>
+            <td id="right">75</td>
+        </tr>
+        <tr id="d1">
+            <td>Operating System</td>
+            <td id="right">60</td>
+        </tr>
+        
+        <tr id="d2">
+            <td rowspan="2" id="name">Bery</td>
+            <td>Web Design</td>
+            <td id="right">80</td>
+        </tr>
+        <tr id="d2">
+            <td>Operating System</td>
+            <td id="right">75</td>
+        </tr>
+        <tr id="d2">
+            <td></td>
+            <td colspan="2">Total Average: 72.5</td>
+        </tr>
+    </table>
+</body>
+
+
+</html>
