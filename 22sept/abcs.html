@@ -23,7 +23,7 @@ Select a file to upload:
 <!-- jpg or jpeg fornmat is here -->
     <table id="ee">
         <tr>
-            <th>jpg  png or jpeg files</th></tr>
+            <th>jpg, png or jpeg files</th></tr>
         <tr><td id="jpg0">jpg file</td></tr>
         <tr><td id="jpg1"></td></tr>
         <tr><td id="jpg2"></td></tr>
@@ -39,9 +39,7 @@ Select a file to upload:
     <!-- pdf format is here -->
     <table id="ee">
         <th>pdf files</th>
-           <tr id="pdf0"> 
-                <td>pdf file</td>
-            </tr>
+           <tr id="pdf0"></tr>
             <tr><td id="pdf1"></td></tr>
         <tr><td id="pdf2"></td></tr>
         <tr><td id="pdf3"></td></tr>
@@ -58,7 +56,7 @@ Select a file to upload:
 <!-- docx format is here -->
     <table id="ee">
         <th>docx files</th>
-           <tr id="docx0"> <td>docx file</td></tr>
+           <tr id="docx0"></tr>
            <tr><td id="docx1"></td></tr>
         <tr><td id="docx2"></td></tr>
         <tr><td id="docx3"></td></tr>
@@ -73,7 +71,27 @@ Select a file to upload:
         </td>   
         
     </table>
-<!-- docx format is here -->
+
+<!-- xml format is here -->
+        <table id="ee">
+            <th>xml or xlsx fiels
+            </th>
+            <tr id="xml0"></tr>
+            <td id="xml1"></td>
+            <tr><td id="xml2"></td></tr>
+            <tr><td id="xml3"></td></tr>
+            <tr><td id="xml4"></td></tr>
+            <tr><td id="xml5"></td></tr>
+            <tr><td id="xml6"></td></tr>
+            <tr><td id="xml7"></td></tr>
+            <tr><td id="xml8"></td></tr>
+            <tr><td id="xml9"></td></tr>
+            <tr><td id="xml10"></td></tr>
+            <label for="xml"></label>
+            </td>   
+            
+        </table>
+<!-- other format is here -->
     <table id="ee">
         <th>other</th>
            <tr id="other0"> <td>other file</td></tr>
@@ -91,6 +109,7 @@ Select a file to upload:
         </td>   
         
     </table>
+
 </div>
 
 <script>
@@ -102,24 +121,22 @@ Select a file to upload:
 
             
 
-            for(var i = 0; i< this.files.length; i++){
-                // showfile.innerHTML += "<p>" + this.files.item(i).name + "</p>"
-            
-                    // console.log(this.files.item(i))
+            for(var i = 0; i< this.files.length; i++){                
                     var x = this.files.item(i).name
 
-var txt = JSON.stringify(x)
-console.log(txt)
-var jpg = txt.includes("jpg")
-var jpeg = txt.includes("jpeg")
-var pdf = txt.includes("pdf")
-var docx = txt.includes("docx")
-                    
-                    // console.log(txt)
+                        var txt = JSON.stringify(x)
+                        // console.log(txt)
+                        var jpg = txt.includes("jpg")
+                        var jpeg = txt.includes("jpeg")
+                        var pdf = txt.includes("pdf")
+                        var doc = txt.includes("docx")
+                        var docx = txt.includes("docx")
+                        var xml = txt.includes("xml")
+                        var xlsx = txt.includes("xlsx")
+                        var xlsx = txt.includes("xls")
                     
                     if(jpg == true || jpeg == true){
-                        // console.log("jpg format")
-                        // jpg.innerHTML += "<p>" + "format" + txt + "</p>"
+                       
                         document.getElementById('jpg' + i).innerText = txt;
                     }
                     else if(pdf == true){
@@ -129,6 +146,10 @@ var docx = txt.includes("docx")
                     else if(docx == true || doc == true){
                         console.log("docx format")
                         document.getElementById('docx' + i).innerText = txt;
+                    }
+                    else if(xml == true || xlsx == true || xls == true){
+                        console.log("xml format")
+                        document.getElementById('xml' + i).innerText = txt;
                     }
                     else{
                         document.getElementById('other' + i).innerText = txt;
