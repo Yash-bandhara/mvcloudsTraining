@@ -1,6 +1,4 @@
 
-//
-
 import java.util.Scanner;
 
 public class corsspattern {
@@ -18,5 +16,6 @@ public class corsspattern {
             }
             System.out.println();
         }
+        sc.close();
     }
 }

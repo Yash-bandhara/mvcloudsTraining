@@ -24,5 +24,6 @@ public class alphastring {
         for(int i = 0;i < chars.length;i++){
             System.out.print(chars[i]);
         }
+        sc.close();
     }
 }

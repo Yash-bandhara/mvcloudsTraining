@@ -14,5 +14,6 @@ public class swaptwo {
         y = x - y;
         x = x - y;
         System.out.println("after swapping ->" + x + " " + y);
+        sc.close();
     }
 }

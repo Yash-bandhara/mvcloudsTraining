@@ -25,6 +25,7 @@
 
     <div class="container my-3 mt-4">
       <h1>Enter New Note</h1>
+
       <div class="card mt-5">
         <div class="card-body">
           <h5 class="card-title">Add a note</h5>
@@ -42,3 +43,52 @@
     <script src="js/app.js"></script>
   </body>
 </html>
+<script>
+    let userlink = document.getElementById('userlink');
+    let signoutlink = document.getElementById('signoutlink');
+    var currentuser = null;
+
+
+        // -------------------FUNCTION----------- -------
+    function getUsername(){
+      let keeploggedin = localStorage.getItem("keeploggedin");
+
+      if(keeploggedin == "yes"){
+        currentuser = JSON.parse(localStorage.getItem('user'));
+      }
+      else{
+        currentuser = JSON.parse(sessionStorage.getItem('user'));
+      }
+    }
+
+    function signout(){
+      sessionStorage.removeItem('user');
+      localStorage.removeItem('user');
+      localStorage.removeItem('keeploggedin');
+      window.location = "notes.html";
+    }
+
+    //----------------------------WINDOWS LOADS-------------------
+
+      // window.onload = function(){
+      //   getUsername();
+      //   if(currentuser == null){
+      //     userlink.innerText = "Create New Account";
+      //     userlink.classList.replace("nav-link","btn");
+      //     userlink.classList.add("btn");
+      //     userlink.href = "log-reg.html";
+      //   }
+      //   else{
+      //     userlink.innerText = currentuser.username;
+      //     userlink.classList.replace("btn", "nav-link");
+      //     userlink.classList.add("btn-primary");
+      //     userlink.href = "#";
+
+      //     signoutlink.innerText = "sign out";
+      //     signoutlink.classList.replace("btn", "nav-link");
+      //     signoutlink.classList.remove("btn-success");
+      //     signoutlinl.href = "javascript:signout()"
+      //   }
+      // }
+
+</script>

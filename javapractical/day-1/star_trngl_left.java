@@ -21,5 +21,6 @@ public class star_trngl_left {
             }
             System.out.println("");
         }
+        sc.close();
     }
 }

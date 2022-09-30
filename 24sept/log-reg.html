@@ -28,8 +28,8 @@
 	width:100%;
 	height: 100%;
 }
-label{
-	color: #eee;
+#ls{
+	color: rgba(67, 68, 116, 0.815);
 	font-size: 2.3em;
 	justify-content: center;
 	display: flex;
@@ -38,7 +38,7 @@ label{
 	cursor: pointer;
 	transition: .5s ease-in-out;
 }
-input{
+.yb{
 	width: 60%;
 	height: 20px;
 	background: #e0dede;
@@ -73,12 +73,13 @@ button:hover{
 .login{
 	height: 460px;
 	background: #eee;
+	/* color:rgb(10, 10, 10) */
 	border-radius: 60% / 10%;
 	transform: translateY(-180px);
 	transition: .8s ease-in-out;
 }
 .login label{
-	color: #6396e2;
+	/* color: #6396e2; */
 	transform: scale(.6);
 }
 
@@ -90,6 +91,9 @@ button:hover{
 }
 #chk:checked ~ .signup label{
 	transform: scale(.6);
+}
+#keep{
+	font-size: 10px;
 }
   </style>
 
@@ -106,22 +110,24 @@ button:hover{
 		<input type="checkbox" id="chk" aria-hidden="true">
 
 			<div class="signup">
-				<form method="post">
-					<label for="chk" aria-hidden="true">Sign up</label>
-					<input type="text" name="txt" placeholder="User name" id="susername">
-					<input type="email" name="email" placeholder="Email" id="semail">
-					<input type="password" name="pswd" placeholder="Password" id="spassword">
+				<!-- <form method="post"> -->
+					<label for="chk" aria-hidden="true" id="ls">Sign up</label>
+					<input type="text" name="txt" placeholder="User name" id="susername" class="yb">
+					<input type="email" name="email" placeholder="Email" id="semail" class="yb">
+					<input type="password" name="pswd" placeholder="Password" id="spassword" class="yb">
 					<button id="signup">Sign up</button>
-				</form>
+				<!-- </form> -->
 			</div>
 
 			<div class="login">
-				<form>
-					<label for="chk" aria-hidden="true">Login</label>
-					<input type="email" name="email" placeholder="Email" id="lemail">
-					<input type="password" name="pswd" placeholder="Password" id="lpasswrod">
+				<!-- <form> -->
+					<label for="chk" aria-hidden="true" id="ls">Login</label>
+					<input type="email" name="email" placeholder="Email" id="lemail" class="yb">
+					<input type="password" name="pswd" placeholder="Password" id="lpasswrod" class="yb">
+					<input type="checkbox" class="custom-control-input" id="customswitch1">
+					<label for="customswitch1" class="custom-control-label" id="keep">Keep me Logged In</label>
 					<button id="login">Login</button>
-				</form>
+				<!-- </form> -->
 			</div>
 	</div>
 
@@ -146,13 +152,18 @@ button:hover{
 		from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js";
 		const db = getDatabase();
 
-		// SIGN UP PAGE
+
+
+														// SIGN UP PAGE
+
+
+
 		const susername = document.getElementById('susername');
 		const semail = document.getElementById('semail');
 		const spassword = document.getElementById('spassword');
 		const signup = document.getElementById('signup');
 
-		//  VALIDATION
+															//  VALIDATION
 
 		function isEmptyOrSpaces(str){
 			return str === null || str.match(/^ *$/) !== null;
@@ -160,7 +171,7 @@ button:hover{
 
 		function validation(){
 			let nameregex = /^[a-zA-Z\s]+$/;
-			let email = /^[a-zA-Z0-9]+@(gmail|yahoo|outlook)\.com$/;
+			let emailregex = /^[a-zA-Z0-9]+@(gmail|yahoo|outlook)\.com$/;
 			let userregex = /^[a-zA-Z0-9]{5,}$/;
 
 			if(isEmptyOrSpaces(susername.value) || isEmptyOrSpaces(semail.value) || isEmptyOrSpaces(spassword.value)){
@@ -178,14 +189,14 @@ button:hover{
 				return false;
 			}
 
-			if(!useregex.test(susername.value)){
+			if(!userregex.test(susername.value)){
 				alert("-username can oly be alphanumeric\n-username must be atleast 5 character\n username cannot contain spaces");
 				return false;
 			}
 			return true;
 		}
 
-		// REGISTER USER TO FIREBASE
+		//-----------------------------------------------REGISTER USER TO FIREBASE--------------------------------------------------
 
 		function registeruser(){
 			if(!validation()){
@@ -193,7 +204,7 @@ button:hover{
 			};
 			const dbRef = ref(db);
 			
-			get(child(dbRef, "userslist/" + susername.value)).them((snapshot) =>{
+			get(child(dbRef, "userslist/" + susername.value)).then((snapshot) =>{
 				if(snapshot.exists()){
 					alert("Account already exist!");
 				}
@@ -202,7 +213,7 @@ button:hover{
 					{
 						username : susername.value,
 						email : semail.value,
-						password : spassword
+						password : encPass()
 					})
 					.then(()=>{
 						alert("user added successfully");
@@ -213,11 +224,77 @@ button:hover{
 				}
 			});
 		}
+
+
+
+		// ENCRIPTION
+
+
+
+		function encPass(){
+			var pass12 = CryptoJS.AES.encrypt(pass.value, pass.value);
+			return pass12.toString();
+		}
 		
 		// ASSIGN THE EVENTS
 
 		signup.addEventListener('click', registeruser);
 
+
+		//--------------------------------------------------LOGIN PAGE---------------------------------------------------
+
+
+
+		const lemail = document.getElementById('lemail');
+		const lpassword = document.getElementById('lpassword');
+		const login = document.getElementById('login');
+
+
+		// AUTHENTICATION PROCESS
+
+
+		function AuthenticateUser(){
+			const dbref = ref(db);
+
+			get(child(dbRef, "userslist/" + susername.value)).then((snapshot) =>{
+				if(snapshot.exists()){
+					let dbpass = decPass(snapshot.val().password);
+					if(dbpass == pass.value){
+						login1();
+					}
+					else{
+						alert("user does not exist");
+					}
+					
+				}
+				else{
+					alert("username or password is invalid");
+				}
+			});
+		}
+
+
+					// DECRIPTION
+
+		function decPass(){
+			var pass12 = CryptoJS.AES.decrypt(dbpass, pass.value);
+			return pass12.toString(CryptoJS.enc.Utf8);
+		}
+
+					// LOGIN
+		function login1(user){
+			let keeploggedin = document.getElementById('customswitch1').checked;
+
+			if(!keeploggedin){
+				sessionStorage.setItem('user', JSON.stringify(user));
+				window.location="notes.html";
+			}
+			else{
+				localStorage.setItem('keeploggedin', 'yes');
+				localStorage.setItem('user', JSON.stringify(user));
+				window.location="notes.html";
+			}
+		}
 
 </script>
 

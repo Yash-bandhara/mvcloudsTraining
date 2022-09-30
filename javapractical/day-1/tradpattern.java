@@ -18,5 +18,6 @@ public class tradpattern {
             }
             System.out.println();
         }
+        sc.close();
     }
 }

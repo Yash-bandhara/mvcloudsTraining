@@ -17,5 +17,6 @@ public class nospace {
                 continue;
         }
         System.out.print(b);
+        sc.close();
     }
 }
